@@ -12,7 +12,9 @@
       box-sizing: border-box;
     }
     body {
-      overflow-x: hidden;
+      width: 100%;
+      box-sizing: border-box;
+      /* overflow-x: hidden; */
     }
 
     .display-flex {
@@ -32,12 +34,13 @@
 
     /* 첫번째 컨테이너영역 */
     #containerOne {
-      width: 100vw;
+      width: 100%;
       height: 100vh;
       border: 1px solid red;
       /*? 가로 스크롤이 생기길래 body에 오버플로우 줬어요
       그랬더니 오른쪽이 살짝 잘리네요 
-      어떻게 해결해야할까요 ?*/
+      어떻게 해결해야할까요 ?
+      위드값 바디부터 그냥 100%줬더니 가로스크롤 사라짐..이게 해결일까요?*/
       background-image: url(images/woozoo.png);
       background-repeat: no-repeat;
       background-size: cover;
@@ -69,13 +72,32 @@
       flex-direction: column;
       position: relative;
     }
-    #title {
-      width: 50%;
-      height: 20%;
-      background-color: rgba(0, 0, 0, .58);
-      position: relative;
+    /* 슬라이드 영역 */
+    #slideWrap {
+      width: 100%;
+      height: 100%;
+      border: 1px solid slateblue;
     }
-    /* ?버튼구조*/
+    #slider {
+      width: 300%;
+      /* 왜 넓이가 300%로 넓어지지 않을까요? */
+      height: 100%;
+      border: 1px solid salmon;
+    }
+    .slide {
+      width: 30rem;
+      height: 10vh;
+      background-color: rgba(0, 0, 0, .58);
+    }
+    .slide h1, 
+    .slide p {
+      display: block;
+      color: white;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    /* 슬라이드 버튼*/
     #btnPrew,
     #btnNext {
       width: 4rem;
@@ -87,10 +109,10 @@
       transform: translateY(-50%);
     }
     #btnPrew {
-      left: -7rem;
+      left: 3vw;
     }
     #btnNext {
-      right: -7rem;
+      right: 3vw;
     }
     #btnPrew::after,
     #btnNext::before {
@@ -114,14 +136,7 @@
       border-left: none;
     }
 
-    #title h1, 
-    #title p {
-      display: block;
-      color: white;
-      text-align: center;
-      margin-top: 1rem;
-    }
-
+    /* 화면 하단 고정 메뉴 3개 */
     #notice {
       position: fixed;
       right: 1vw;
@@ -140,7 +155,7 @@
 
     /* 두번쨰영역 */
     #containerTwo {
-      width: 100vw;
+      width: 100%;
       height: 90vh;
       border: 1px solid blue;
       position: relative;
@@ -185,12 +200,26 @@
       </nav>
     </header>
     <div id="mainWrap" class="display-flex justCon-center alItems-center">
-      <div id="title">
-        <h1>달 탐사선</h1>
-        <p>2022년 8월 발사 예정 (지구 탈출할 사람 click!)</p>
-        <div id="btnPrew"></div>
-        <div id="btnNext"></div>
+      <div id="slideWrap" class="display-flex justCon-center alItems-center">
+        <div id="slider" class="display-flex justCon-spaceBetween alItems-center">
+          <div id="slide-1" class="slide">
+            <h1>달 탐사선</h1>
+            <p>2022년 8월 발사 예정 (지구 탈출할 사람 click!)</p>
+          </div>
+          <div id="slide-2" class="slide">
+            <h1>어린왕자별 탐사선</h1>
+            <p>2022년 10월 발사 예정 (어린왕자랑 셀카찍고싶으면 click!)</p>
+          </div>
+          <div id="slide-3" class="slide">
+            <h1>고양이별 탐사선</h1>
+            <p>2022년 12월 발사 예정 (무지개 다리 너머 그곳으로!)</p>
+          </div>
+        </div>
+        
       </div>
+      
+      <div id="btnPrew"></div>
+      <div id="btnNext"></div>
       <div id="notice" class="display-flex">
         <div>1</div>
         <div>2</div>
