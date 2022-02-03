@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    body {
+      overflow-x: hidden;
+    }
+
+    .display-flex {
+      display: flex;
+    }
+    .justCon-center {
+      justify-content: center;
+    }
+    .justCon-spaceBetween {
+      justify-content: space-between;
+    }
+    .alItems-center {
+      align-items: center;
+    }
+
+
+
+    /* 첫번째 컨테이너영역 */
+    #containerOne {
+      width: 100vw;
+      height: 100vh;
+      /*border: 1px solid red;*/
+      background-image: url(images/woozoo.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    header {
+      width: 100%;
+      height: 10vh;
+      background-color: rgba(0, 0, 0, .88);
+      position: sticky;
+      top: 0;
+      /*flex-네비 가운데 정렬*/
+
+    }
+    header nav {
+      width: 40vw;
+      /*flex 네비안에 div 정렬*/
+    }
+    header nav > div {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background-color: seashell;
+      text-indent: -9999em;
+    }
+    #mainWrap {
+      width: 100%;
+      height: 90%;
+      flex-direction: column;
+      position: relative;
+    }
+    #title {
+      width: 50%;
+      height: 20%;
+      background-color: rgba(0, 0, 0, .63);
+      position: relative;
+    }
+    #title ::after,
+    #title ::before {
+      content: '';
+      width: 2rem;
+      height: 2rem;
+      border: 1px solid rgba(255, 255, 255, .88);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      transform: rotate(-45deg);
+    }
+    #title ::after {
+      left: -5vw;
+      border-right: none;
+      border-bottom: none;
+    }
+    #title ::before {
+      right: -5vw;
+      border-top: none;
+      border-left: none;
+    }
+    #title h1, 
+    #title p {
+      display: block;
+      color: white;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    #btn {
+      position: fixed;
+      right: 1vw;
+      bottom: 2vh;
+    }
+    #btn > div {
+      width: 8rem;
+      height: 5rem;
+      margin: 0 2rem;
+      background-color: rgba(231, 231, 231, 0.88);
+      border-radius: 2.5rem;
+      text-indent: -9999em;
+    }
+
+    #containerTwo {
+      width: 100vw;
+      height: 80vh;
+      border: 1px solid blue;
+      position: relative;
+    }
+  
+    #titleWrap h2,
+    #titleWrap p {
+      text-align: center;
+    }
+    #boxWrap {
+      margin-top: 2rem;
+    }
+    #boxWrap >div {
+      width: 20vw;
+      height: 20vh;
+      border: 1px solid blue;
+      background-color: white;
+      text-align: center;
+      margin: 0 2rem;
+    }
+    /*배경박스*/
+    #background {
+      width: 100%;
+      height: 50%;
+      background-color: cornflowerblue;
+      position: absolute;
+      bottom: 0;
+      z-index: -2;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="containerOne">
+    <header class="display-flex justCon-center alItems-center">
+      <nav class="display-flex justCon-spaceBetween">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+      </nav>
+    </header>
+    <div id="mainWrap" class="display-flex justCon-center alItems-center">
+      <div id="title">
+        <h1>달 탐사선</h1>
+        <p>2022년 8월 발사 예정 (지구 탈출할 사람 click!)</p>
+      </div>
+      <div id="btn" class="display-flex">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </div>
+    </div>
+  </div>
+  <div id="containerTwo" class="display-flex justCon-center alItems-center">
+    <div>
+      <div id="titleWrap">
+        <h2>Lorem Ipsum</h2>
+        <p>Donec eget tempus urna. Praesent egestas leo ac purus ullamcorper semper.</p>
+      </div>
+      <div id="boxWrap" class="display-flex justCon-spaceBetween">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </div>
+    </div>
+    <div id="background"></div>
+  </div>
+  <script>
+    const background = document.querySelector('#containerOne');
+    console.dir(background);
+
+  </script>
+
+</body>
+</html>
