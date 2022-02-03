@@ -34,7 +34,10 @@
     #containerOne {
       width: 100vw;
       height: 100vh;
-      /*border: 1px solid red;*/
+      border: 1px solid red;
+      /*? 가로 스크롤이 생기길래 body에 오버플로우 줬어요
+      그랬더니 오른쪽이 살짝 잘리네요 
+      어떻게 해결해야할까요 ?*/
       background-image: url(images/woozoo.png);
       background-repeat: no-repeat;
       background-size: cover;
@@ -68,52 +71,73 @@
     #title {
       width: 50%;
       height: 20%;
-      background-color: rgba(0, 0, 0, .63);
+      background-color: rgba(0, 0, 0, .58);
       position: relative;
     }
-    #title ::after,
-    #title ::before {
-      content: '';
-      width: 2rem;
-      height: 2rem;
-      border: 1px solid rgba(255, 255, 255, .88);
+    /* ?버튼구조*/
+    #btnPrew,
+    #btnNext {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      background-color: rgba(0, 0, 0, .58);
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      transform: rotate(-45deg);
     }
-    #title ::after {
-      left: -5vw;
+    #btnPrew {
+      left: -7rem;
+    }
+    #btnNext {
+      right: -7rem;
+    }
+    #btnPrew::after,
+    #btnNext::before {
+      content: '';
+      width: 2rem;
+      height: 2rem;
+      border: 1px solid #fff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform:translate(-50%, -50%) rotate(-45deg);
+    }
+    #btnPrew::after {
+      left: 60%;
       border-right: none;
       border-bottom: none;
     }
-    #title ::before {
-      right: -5vw;
+    #btnNext::before {
+      left: 40%;
       border-top: none;
       border-left: none;
     }
+
     #title h1, 
     #title p {
       display: block;
       color: white;
       text-align: center;
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
 
-    #btn {
+    #notice {
       position: fixed;
       right: 1vw;
       bottom: 2vh;
+      z-index: 10;
     }
-    #btn > div {
+    #notice > div {
       width: 8rem;
       height: 5rem;
       margin: 0 2rem;
-      background-color: rgba(231, 231, 231, 0.88);
+      background-color: #eee;
       border-radius: 2.5rem;
       text-indent: -9999em;
     }
 
+
+    /* 두번쨰영역 */
     #containerTwo {
       width: 100vw;
       height: 80vh;
@@ -163,8 +187,10 @@
       <div id="title">
         <h1>달 탐사선</h1>
         <p>2022년 8월 발사 예정 (지구 탈출할 사람 click!)</p>
+        <div id="btnPrew"></div>
+        <div id="btnNext"></div>
       </div>
-      <div id="btn" class="display-flex">
+      <div id="notice" class="display-flex">
         <div>1</div>
         <div>2</div>
         <div>3</div>

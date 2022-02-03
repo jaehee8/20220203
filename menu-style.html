@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    #container {
+      width: 100vw;
+      height: 500vh;
+      background-image: url(./images/budapest-feature.jpg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      /* 가로를 기준으로 커버됨 */
+    }
+    header {
+      width: 100vw;
+      height: 10vh;
+      background-color: rgba(255, 103, 154, 0.5);
+      position: absolute;
+      backdrop-filter: blur(30px);
+      opacity: .8;
+      
+      /* mix-blend-mode: multiply; */
+      
+    }
+  </style>
+</head>
+<body>
+  <header id="header"></header>
+  <div id="container"></div>
+  <script>
+
+    //바닐라
+
+    const heaerTwo = document.querySelector('#header');
+    window.addEventListener('load', function() {
+      heaerTwo.addEventListener('click', function() {
+        heaerTwo.style.bottom = "0";
+      });
+    });
+  </script>
+</body>
+</html>
